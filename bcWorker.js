@@ -13,23 +13,22 @@ self.addEventListener(
             if (bcTmp > bcTarget) {
               clearInterval(timer);
             }
-            bcTmp = bcTmp+10;
+            bcTmp = bcTmp+1;
             console.log(`【BCW→W送】計算BCP:${bcTmp}kPa`);
             self.postMessage(bcTmp);   
-        }, 100);
+        }, 10);
     }else{//減圧すべき場合
         var timer = setInterval(function() {
             console.log(`【BCW】計算開始 元BC:${bcTmp}`);
-            if (bcTmp < bcTarget) {
-              clearInterval(timer);
-            }
-            bcTmp = bcTmp-10;
+            bcTmp = bcTmp-1;
             if(bcTmp<0){bcTmp=0;}
+            if (bcTmp <= bcTarget) {
+                clearInterval(timer);
+              }
             console.log(`【BCW→W送】計算BCP:${bcTmp}kPa`);
             self.postMessage(bcTmp);   
-        }, 100);
+        }, 10);
     }
-
   },
   false
 );
