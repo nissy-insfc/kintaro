@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Worker</title>
+</head>
+<body>    
+    <span>単弁位置:</span>
+    <span id="bchTxt">-</span><br>
+    <span>BC圧:</span>
+    <span id="bcpTxt">-</span>
+    <span>kPa</span><br>
+    <button onclick="refresh();console.log(`ボタンによるrefresh指示`);">表示更新</button><br>
+    <button onclick="bcPlus();">BC+</button><br>
+    <button onclick="bcMinus();">BC-</button><br>
+    <script src="./main.js"></script>
+</body>
+</html>
